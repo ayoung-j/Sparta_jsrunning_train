@@ -9,7 +9,16 @@ const students = [
 
 // 여기에 코드를 작성해주세요
 // 예상 출력: ["이재상", "김준현"]
-
+let averageName = students
+    .map((student) => {
+        return {
+            name: student.name,
+            average: (student.scores[0] + student.scores[1]) / student.scores.length,
+        };
+    })
+    .filter((student) => student.average > 80)
+    .map((student) => student.name);
+console.log(averageName); // ["이재상", "김준현"]
 
 // 2.
 const numbers = [5, 10, 15, 20, 25];

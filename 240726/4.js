@@ -25,23 +25,13 @@ console.log(big); // [ 20, 25 ]
 // 4.
 var arr = ["banana", "kiwi", "mango", "strawberry", "lime", "orange", "plum", "cherry"];
 // 문자열 길이가 4 이상인 값을 반환하여 출력해주세요
-let longLength = [];
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length >= 4) {
-        longLength.push(arr[i]);
-    }
-}
+let longLength = arr.filter((n) => n.length >= 4);
 console.log(longLength); // ["banana", "kiwi", "mango", "strawberry", "lime", "orange", "plum", "cherry"]
 
 // 5.
 var arr = ["banana", "kiwi", "mango", "strawberry", "lime", "orange", "plum", "cherry"];
 // 요소의 문자열 길이가 홀수인 요소만 반환하여 출력해주세요
-let oddLength = [];
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length % 2 !== 0) {
-        oddLength.push(arr[i]);
-    }
-}
+let oddLength = arr.filter((n) => n.length % 2 !== 0);
 console.log(oddLength); // [ 'mango' ]
 
 // 6.
@@ -70,31 +60,15 @@ var student = [
     { id: 2, name: null },
     { id: 3, name: "김준현" },
 ];
-// 객체 배렬에서 name 속성이 null인 객체가 있는지 판별을 확인하는 코드를 작성하고 반환값을 출력해주세요
-let studentName = [];
-let studentNull = "";
-for (let i = 0; i < student.length; i++) {
-    studentName.push(student[i].name);
-    studentNull = studentName.includes(null);
-}
-console.log(studentNull); // true
+// 객체 배열에서 name 속성이 null인 객체가 있는지 판별을 확인하는 코드를 작성하고 반환값을 출력해주세요
+let studentNull = student.some((student) => student.name === null);
+console.log("name 속성이 null인 객체가 있는지 : ", studentNull); // true
 
 // 9.
 var arr = ["banana", "kiwi", "mango", "strawberry", "lime", "orange", "plum", "cherry"];
 // 문자열 길이가 5를 초과하는 요소가 있는지 검사하는 코드를 작성하고 반환값을 출력해주세요.
-let overLength = [];
-let overReturn = "";
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > 5) {
-        overLength.push(arr[i]);
-        if (overLength.length > 0) {
-            overReturn = true;
-        } else {
-            overReturn = false;
-        }
-    }
-}
-console.log(overReturn); // true
+let overLength = arr.some((n) => n.length > 5);
+console.log("길이가 5를 초과하는 요소가 있는지 : ", overLength); // true
 
 // 10.
 var arr = ["banana", "kiwi", "mango"];
@@ -105,35 +79,11 @@ console.log(arr); // [ 'banana', 'kiwi', 'Cherry', 'mango' ]
 // 11.
 var arr = [1, 5, -3, 10, 0, 8];
 // 배열에 음수가 하나라도 있는지 판별하는 코드를 작성하고 반환값을 출력해주세요
-let negativeLength = [];
-let negativeReturn = "";
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-        negativeLength.push(arr[i]);
-        if (negativeLength.length > 0) {
-            negativeReturn = true;
-        } else {
-            negativeReturn = false;
-        }
-    }
-}
-console.log(negativeLength); // [ -3 ]
-console.log(negativeReturn); // true
+let negativeReturn = arr.some((n) => n < 0);
+console.log("음수가 하나라도 있는지", negativeReturn); // true
 
 // 12.
 var arr = [1, 5, -3, 10, 0, 8];
 // 모든 숫자가 음수인지 판별하는 코드를 작성하고 반환값을 출력해주세요
-let allNegativeLength = [];
-let allNegativeReturn = "";
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-        allNegativeLength.push(arr[i]);
-        if (allNegativeLength.length === arr.length) {
-            allNegativeReturn = true;
-        } else {
-            allNegativeReturn = false;
-        }
-    }
-}
-console.log(allNegativeLength); // [ -3 ]
-console.log(allNegativeReturn); // false
+let allNegativeReturn = arr.every((n) => n < 0);
+console.log("모든 숫자가 음수인지", allNegativeReturn); // false
