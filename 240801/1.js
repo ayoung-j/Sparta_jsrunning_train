@@ -31,7 +31,8 @@ console.log(student1.name); // 준현
 console.log(student1.age); // 12000
 console.log(student1.study); // javascript
 
-// 5. Tutee 클래스를 만들어주세요 Tutee는 Person을 상속받습니다.  
+// 5. Tutee 클래스를 만들어주세요 Tutee는 Person을 상속받습니다.
+// Tutee 클래스는 name, age, study의 속성을 갖고 있습니다.
 // info 메서드를 오버라이드해서 "저의 이름은 [name] 나이는 [age] 현재 [study]를 학습하고 있습니다" 라는 메시지를 출력하게 만들어주고, 인스턴스는 tutee이라고 만들어주세요.
 class Tutee extends Person{
     constructor(name, age, study){
